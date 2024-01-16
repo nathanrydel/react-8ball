@@ -5,8 +5,8 @@
  *  */
 
 function getRandomElement(array) {
-  let randomIndex = Math.floor(Math.random() * choices.length);
+  let randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
 }
 
-export default getRandomChoice;
+export default getRandomElement;
