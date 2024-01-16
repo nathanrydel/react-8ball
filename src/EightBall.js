@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./EightBall.css";
-import getRandomChoice from './random';
+import getRandomElement from './random';
 
 
 const defaultAnswers = [
@@ -26,20 +26,36 @@ const defaultAnswers = [
   { msg: "Very doubtful.", color: "red" },
 ];
 
-
+/**
+ * EightBall: renders a random answer and onClick changes answer
+ *
+ * Props:
+ * - answers: array of objects: { msg, color }
+ *
+ * State:
+ * - answer: { msg, color } the current answer
+ *
+ * App -> EightBall
+ */
 
 function EightBall({ answers = defaultAnswers }) {
-  const [answer, setAnswer] = useState("TODO:")
+  const [answer, setAnswer] = useState(
+    {
+      msg: "Think of a Question", color: "black"
+    }
+  );
 
   function handleClick(evt) {
-    setAnswer(choice(answers))
+    setAnswer(getRandomElement(answers));
   }
+
+
   return (
     <div
       className="EightBall"
       onClick={handleClick}
     >
-      <p>TODO: Answer goes here</p>
+      <p>{answer.msg}</p>
     </div>
   );
 }
