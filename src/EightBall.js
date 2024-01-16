@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./EightBall.css";
-import getRandomElement from './random';
+import { default as getRandomChoice } from './random';
 import defaultAnswers from './defaultAnswers';
 
 
@@ -24,14 +24,14 @@ function EightBall({ answers = defaultAnswers }) {
   );
 
   function handleClick(evt) {
-    setAnswer(getRandomElement(answers));
+    setAnswer(getRandomChoice(answers));
   }
 
   return (
     <div
       className="EightBall"
       onClick={handleClick}
-      style={{backgroundColor: answer.color}}
+      style={{ backgroundColor: answer.color }}
     >
       <p>{answer.msg}</p>
     </div>
